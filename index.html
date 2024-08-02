@@ -22,9 +22,50 @@
   </header>
   <div class="container">
     <div class="text-center mb-5">
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+      <!-- button -->
+      <button type class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Task</button>
     </div>
+      <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Title -->
+        <div class="mb-3">
+          <label for="task-title" class="form-labels">Task Title</label>
+          <input type="text" class="form-control" id="task-title" autocomplete="off">
+        </div>
+        <!-- Due Date -->
+        <div class="mb-3">
+          <label for="task-date">Task Due Date</label>
+          <input type="date" class="form-control" id="task-due-date" autocomplete="off">  
+        </div>
+        <!-- Description -->
+        <div class="mb-3">
+          <label for="title-description" class="form-labels">Title Description</label>
+          <textarea class="form-control" id="task-description" rows="2" autocomplete="off"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        <input type="submit" class="btn btn-success" value = "Add Task" id="submit-task"></input>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
     <!-- Todo: Create a modal with a form to add tasks -->
+    <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button> -->
+
+
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
         <div id="to-do" class="card border-light mb-3 lane flex-grow-1">
