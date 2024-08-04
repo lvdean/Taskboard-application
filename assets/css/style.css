@@ -9,7 +9,13 @@ body {
 
 .task-card {
   margin: 0 auto;
+  border: 1px solid #ccc; /* Border around cards */
+    border-radius: 5px; /* Rounded corners for cards */
+    padding: 10px; /* Padding inside cards */
+    margin-bottom: 10px; /* Space between cards */
+    cursor: move; 
 }
+    
 
 .task-card:hover {
   cursor: grab;
@@ -29,6 +35,9 @@ body {
 }
        
 
-.past-due { background-color: rgb(110, 215, 223); color: rgb(8, 8, 8); }
+.past-due { background-color: rgb(158, 37, 37); color: rgb(8, 8, 8); }
         
 .due-soon { background-color: yellow; color: black; }
+ 
+.present {background-color: rgb(234, 234, 234); color: black; }
+

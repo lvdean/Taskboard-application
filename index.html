@@ -51,8 +51,10 @@
         </div>
       </div>
       <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-        <input type="submit" class="btn btn-success" value = "Add Task" id="submit-task"></input>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <input type="submit" class="btn btn-success" value = "Add Task" id="submit-task"></input> -->
+        <button type="button" class="btn btn-primary" id="submit-task" form="form-input" onclick={onclose}>Add Task</button>
+
       </div>
     </div>
   </div>
@@ -67,8 +69,8 @@
 
 
     <div class="row swim-lanes text-center justify-content-between">
-      <div class="col-12 col-lg-4 d-flex">
-        <div id="to-do" class="card border-light mb-3 lane flex-grow-1">
+      <div class="col-12 col-lg-4 d-flex droppable-lane">
+        <div id="to-do" class="card border-light mb-3 lane droppable-lane" data-status="to-do">
           <div class="card-header bg-white">
             <h2 class="card-title mb-1">To Do</h2>
           </div>
@@ -77,8 +79,8 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-4 d-flex">
-        <div id="in-progress" class="card border-light mb-3 lane flex-grow-1">
+      <div class="col-12 col-lg-4 d-flex droppable-lane">
+        <div id="in-progress" class="card border-light mb-3 lane  flex-grow-1" data-status="in-progress">
           <div class="card-header bg-white">
             <h2 class="card-title mb-1">In Progress</h2>
           </div>
@@ -87,8 +89,8 @@
           </div>
         </div>
         </div>
-        <div class="col-12 col-lg-4 d-flex">
-          <div id="done" class="card border-light mb-3 lane flex-grow-1">
+        <div class="col-12 col-lg-4 d-flex droppable-lane">
+          <div id="done" class="card border-light mb-3 lane flex-grow-1 " data-status="done">
             <div class="card-header bg-white">
               <h2 class="card-title mb-1">Done</h2>
             </div>
