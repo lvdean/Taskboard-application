@@ -1,11 +1,23 @@
+
 let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
 
 // function for a unique task id
 function generateTaskId() { 
-    localStorage.setItem('nextId', JSON.stringify(nextId++));
-    return nextId++;
+  const id = nextId++;
+  localStorage.setItem('nextId', JSON.stringify(nextId));
+  return id;
 }
+
+// Testing for parsing errors
+// let taskList = [];
+// try {
+//     const storedTasks = localStorage.getItem("tasks");
+//     taskList = storedTasks ? JSON.parse(storedTasks) : [];
+// } catch (e) {
+//     console.log("Failed to parse tasks from localStorage:", e);
+// }
+
 function readTasksFromStorage() {
     return taskList;
   }
@@ -19,9 +31,8 @@ const toDoCards = $('#todo-cards');
 const inProgressCards = $('#in-progress-cards');
 const doneCards = $('#done-cards');
 
-// Save tasks and nextId to localStorage
+// Save tasks to localStorage
 function saveTasks(taskList) {
-
     localStorage.setItem('tasks', JSON.stringify(taskList));
 }
 
@@ -56,7 +67,7 @@ const now =  dayjs();
         taskCard.addClass("due-soon");
      } else if (now.isSame(dueDateTime, 'day')) {
         taskCard.addClass("present");
-     } else if (now.isAfter) {
+     } else if (now.isAfter(dueDateTime, 'day')) {
         taskCard.addClass("past-due"); 
      }
 
@@ -134,7 +145,7 @@ const now =  dayjs();
         saveTasks();
 
         // Hide the modal after adding task
-     $('#formModal').modal('hide');
+     $('#staticBackdrop').modal('hide');
 
      const taskCard = createTaskCard(newTask);
         console.log(taskCard)
@@ -180,10 +191,10 @@ const now =  dayjs();
     // Change the background of the card to white if moved to the "done" column
     if (newStatus === 'done') {
         $(`[data-task-id=${taskId}]`)
-          .removeClass()
-          .css('bg-white btn-danger');
+          // .removeClass()
+          .addClass('present');
     }}
-
+  }
   
 
 

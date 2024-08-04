@@ -5,6 +5,7 @@ body {
 
 .swim-lanes {
   min-height: 60vh;
+  z-index:50;
 }
 
 .task-card {
