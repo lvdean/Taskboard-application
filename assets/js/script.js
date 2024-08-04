@@ -191,9 +191,11 @@ const now =  dayjs();
     // Change the background of the card to white if moved to the "done" column
     if (newStatus === 'done') {
         $(`[data-task-id=${taskId}]`)
-          // .removeClass()
-          .addClass('present');
+          .removeClass('past-due due-soon present')
+          .addClass('done');
     }}
+    // check status as tasks move to each column
+    console.log("newStatus: ", newStatus);
   }
   
 
