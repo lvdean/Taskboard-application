@@ -59,14 +59,12 @@ function createTaskCard(task) {
 
 //Determine the colour of the card based on whether the task is past present or in the future
 const now =  dayjs();
-    const dueDateTime = dayjs(task.dueDate, 'MM/DD/YYYY');
-    console.log(now)
-     console.log(dueDateTime)
+    const dueDateTime = dayjs(task.dueDate, 'DD/MM/YYYY');
+    // console.log(now)
+    //  console.log(dueDateTime)
 
      if (now.isBefore(dueDateTime, 'day')){
         taskCard.addClass("due-soon");
-     } else if (now.isSame(dueDateTime, 'day')) {
-        taskCard.addClass("present");
      } else if (now.isAfter(dueDateTime, 'day')) {
         taskCard.addClass("past-due"); 
      }
@@ -191,19 +189,17 @@ const now =  dayjs();
     // Change the background of the card to white if moved to the "done" column
     if (newStatus === 'done') {
         $(`[data-task-id=${taskId}]`)
-          .removeClass('past-due due-soon present')
-          .addClass('done');
+          .removeClass('due-soon past-due')
+          .css('bg-white btn-danger ');
+          
     }}
     // check status as tasks move to each column
     console.log("newStatus: ", newStatus);
   }
   
 
-
     // Load tasks and initialize event listeners
     renderTaskList();
-    // makeTasksDraggable();
-    // makeLanesDroppable();
 
     // Event listener for adding a new task
     $taskSubmit.on('click', handleAddTask);
